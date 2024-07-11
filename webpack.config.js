@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -9,6 +10,7 @@ module.exports = {
   },
   module: {
     rules: [
+      // style and css loader
       {
         test: /\.css$/,
         use: [
@@ -36,4 +38,13 @@ module.exports = {
       },
     ],
   },
+
+  // plugin
+  plugins: [
+    // HTML Webpack Plugin
+    new HtmlWebpackPlugin({
+      template: "./template.html", // nama file rujukan
+      filename: "index.html", // nama file hasil bundle di folder dist
+    }),
+  ],
 };
