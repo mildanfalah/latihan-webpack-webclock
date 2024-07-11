@@ -3,6 +3,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
+  devServer: {
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
+  },
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
